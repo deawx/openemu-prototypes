@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en" class="bg-gray-900 min-h-screen">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>OpenEmu App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css" rel="stylesheet" />
+  <style>
+    :root{
+      --color-black:#111;
+      --color-w-25:rgba(255,255,255,.25);
+      --color-b-25:rgba(0,0,0,.25);
+      --color-gray-100:#eeeff0;
+      --color-gray-200:#d5d6d8;
+      --color-gray-300:#bcbdc1;
+      --color-gray-400:#98989D;
+      --color-gray:#636366;
+      --color-gray-600:#48484A;
+      --color-gray-700:#3A3A3C;
+      --color-gray-800:#2C2C2E;
+      --color-gray-900:#1C1C1E;
+      --color-blue-100:#f0f7fd;--color-blue-200:#daecfa;--color-blue-300:#c4e0f7;--color-blue-400:#98c9f1;--color-blue:#409CFF;--color-blue-600:#61a0d4;--color-blue-700:#416b8d;--color-blue-800:#31506a;--color-blue-900:#203547;--color-red-100:#fdeeee;--color-red-200:#fbd5d4;--color-red-300:#f9bcba;--color-red-400:#f48987;--color-red:#ef5753;--color-red-600:#d74e4b;--color-red-700:#8f3432;--color-red-800:#6c2725;--color-red-900:#481a19;--color-orange-100:#fef5ec;--color-orange-200:#fde6cf;--color-orange-300:#fbd6b2;--color-orange-400:#f9b879;--color-orange:#f6993f;--color-orange-600:#dd8a39;--color-orange-700:#945c26;--color-orange-800:#6f451c;--color-orange-900:#4a2e13}
+    .bg-black { background-color: var(--color-black); }
+    .bg-gray-900 { background-color: var(--color-gray-900); }
+    .bg-gray-800 { background-color: var(--color-gray-800); }
+    .bg-gray-700 { background-color: var(--color-gray-700); }
+    .bg-gray-600 { background-color: var(--color-gray-600); }
+    .bg-gray-500 { background-color: var(--color-gray); }
+    .bg-gray-400 { background-color: var(--color-gray-400); }
+    .bg-gray-300 { background-color: var(--color-gray-300); }
+    .bg-gray-200 { background-color: var(--color-gray-200); }
+    .bg-gray-100 { background-color: var(--color-gray-100); }
+    .text-black { color: var(--color-black); }
+    .text-gray-900 { color: var(--color-gray-900); }
+    .text-gray-800 { color: var(--color-gray-800); }
+    .text-gray-700 { color: var(--color-gray-700); }
+    .text-gray-600 { color: var(--color-gray-600); }
+    .text-gray-500 { color: var(--color-gray); }
+    .text-gray-400 { color: var(--color-gray-400); }
+    .text-gray-300 { color: var(--color-gray-300); }
+    .text-gray-200 { color: var(--color-gray-200); }
+    .text-gray-100 { color: var(--color-gray-100); }
+    .bg-w-25 { background-color: var(--color-w-25); }
+    .bg-b-25 { background-color: var(--color-b-25); }
+    .border-w-10 { border-color: rgba(255,255,255,.1); }
+    .border-w-15 { border-color: rgba(255,255,255,.15); }
+    .border-w-25 { border-color: rgba(255,255,255,.25); }
+    .border-b-10 { border-color: rgba(0,0,0,.1); }
+    .border-b-15 { border-color: rgba(0,0,0,.15); }
+    .border-b-25 { border-color: rgba(0,0,0,.25); }
+    .text-2xs { font-size: .7rem; }
+
+    .form-control::placeholder { color: rgba(255,255,255,.33); }
+
+    .text-muted { opacity: .65; }
+    .tab-content > .tab-pane { display: none; }
+    .tab-content > .active { display: flex; }
+    .fade { opacity: 0; transition: opacity 0.15s linear; }
+    .fade.in { opacity: 1; }
+    .dropup, .dropdown { position: relative; }
+    .dropdown-toggle:focus { outline: 0; }
+    .dropdown-menu { position: absolute; top: 100%; left: 0; z-index: 1000; display: none; float: left; min-width: 160px; padding: 5px 0; margin: 2px 0 0; font-size: 12px; text-align: left; list-style: none; background-color: var(--color-gray-900); color: var(--color-gray-100); background-clip: padding-box; border: 1px solid rgba(255,255,255,.15); border-radius: 4px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+    .dropdown-menu.pull-right { right: 0; left: auto; }
+    .dropdown-menu .divider { height: 1px; margin: 9px 0; overflow: hidden; background-color: rgba(255,255,255,.15); }
+    .dropdown-menu > li > a { display: block; padding: 3px 20px; clear: both; font-weight: 400; line-height: 1.42857143; color: currentColor; white-space: nowrap; }
+    .dropdown-menu > li > a .fa-angle-right { margin-right: -10px; float: right; }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { color: var(--color-gray-500); text-decoration: none; background-color: var(--color-gray-700); }
+    .dropdown-menu > .selected > a,.dropdown-menu > .selected > a:hover,.dropdown-menu > .selected > a:focus,.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus { color: #fff; text-decoration: none; background-color: var(--color-gray-700); outline: 0; }
+    .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus { color: #777777; }
+    .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus { text-decoration: none; cursor: not-allowed; background-color: transparent; background-image: none; filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); }
+    .open > .dropdown-menu { display: block; }
+    .open > a { outline: 0; }
+    .dropdown-menu-right { right: 0; left: auto; }
+    .dropdown-menu-left { right: auto; left: 0; }
+    .dropdown-header { display: block; padding: 3px 20px; font-size: 11px; line-height: 1.42857143; color: var(--color-gray); font-weight: bold; text-decoration: uppercase; white-space: nowrap; }
+    .dropdown-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 990; }
+    .pull-right > .dropdown-menu { right: 0; left: auto; }
+    .dropup .caret, .navbar-fixed-bottom .dropdown .caret { content: ""; border-top: 0; border-bottom: 4px dashed; border-bottom: 4px solid \9; }
+    .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu { top: auto; bottom: 100%; margin-bottom: 2px; }
+    @media (min-width:768px) {
+      .navbar-right .dropdown-menu { right: 0; left: auto; }
+      .navbar-right .dropdown-menu-left { right: auto; left: 0; }
+    }
+
+    .window { border: 1px solid rgba(255,255,255,.1); }
+    .window .body { height: 600px; }
+    .window .sidebar .tab-content {}
+    #search:placeholder-shown { width: 0; opacity: 0; transition-property: none; }
+    #search:focus { outline: 0; }
+    #search:focus:placeholder-shown { width: 100%; opacity: 1; transition: all .25s; }
+    #search:focus + i,#search:focus + svg,
+    #search:not(:placeholder-shown) + i,#search:not(:placeholder-shown) + svg { display: none; }
+    .aside-nav .active a { border-color: var(--color-w-25); opacity: 1; }
+    .list a.active { background: var(--color-blue); font-weight: bold; color: #FFF; opacity: 1; text-shadow: 0 1px 1px rgba(0,0,0,.25); box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 2px 2px rgba(0,0,0,.5); }
+    .list .dropdown-header { padding-left: .75rem; }
+    .list .dropdown-header:not(:first-child) { padding-top: 1.5rem; }
+    .list a + .flex { display: none; }
+    .list .active + .flex { display: flex; }
+    .grid-list-btn:focus { outline: none; }
+    .grid-list-btn.active { background: var(--color-gray-800); color: #FFF; box-shadow: inset 0 0 10px 1px rgba(0,0,0,.5); }
+    .btn-group > button { border-right: 1px solid rgba(0,0,0,.5); border-left: 1px solid rgba(255,255,255,.1); }
+    .btn-group > button:first-child { border-left: 0 none; }
+    .btn-group > button:last-child { border-right: 0 none; }
+    .btn-group > button.active { border-color: transparent; }
+
+  </style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/css/bootstrap-select.min.css" rel="stylesheet" />
+  <style>
+    .bootstrap-select.show-tick .dropdown-menu svg { display: none; }
+    .bootstrap-select.show-tick .dropdown-menu .selected svg { position: absolute; top: 5px; left: 10px; display: inline-block; }
+  </style>
+
+</head>
+<body class="py-16 px-4 min-h-screen bg-b-25 text-gray-100 text-sm leading-tight">
+
+  <div class="window mx-auto max-w-4xl rounded overflow-hidden shadow-xl">
+
+    <div class="mast p-2 bg-gray-800 flex flex-wrap items-center">
+      <div class="mast-gadgets w-1/4 flex items-center">
+        <b class="w-3 h-3 rounded-full bg-red-500"></b>
+        <b class="mx-2 w-3 h-3 rounded-full bg-yellow-500"></b>
+        <b class="w-3 h-3 rounded-full bg-green-500"></b>
+      </div>
+      <div class="mast-toolbar py-1 w-full text-gray-400 flex-1 flex items-center">
+        <div class="flex-1 flex">
+          <div class="btn-group text-gray-300 flex overflow-hidden shadow rounded">
+            <button type="button" class="grid-list-btn active p-1 px-2 bg-gray-600"><i class="fas fa-fw fa-th"></i></button>
+            <button type="button" class="grid-list-btn p-1 px-2 bg-gray-600"><i class="fal fa-fw fa-line-columns"></i></button>
+          </div>
+        </div>
+        <div class="flex-1 flex">
+          <div class="btn-group text-gray-300 text-xs flex overflow-hidden shadow rounded">
+            <button type="button" class="grid-list-btn active p-1 px-2 bg-gray-600">Library</button>
+            <button type="button" class="grid-list-btn p-1 px-2 bg-gray-600">Saves</button>
+            <button type="button" class="grid-list-btn p-1 px-2 bg-gray-600">Screenshots</button>
+          </div>
+        </div>
+        <div class="w-1/4">
+          <div class="mast-search px-1 text-right">
+            <label for="search" class="inline-block cursor-pointer">
+              <input type="text" id="search" class="form-control border border-w-25 p-1 px-2 bg-b-25 text-white text-xs rounded-full" placeholder="Search" />
+              <i class="fal fa-fw fa-search"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body flex">
+      <div class="sidebar w-1/4 bg-gray-800 flex flex-col relative">
+        <ul class="aside-nav bg-gray-700 flex items-center">
+          <li class="mr-2 active font-bold text-2xs uppercase tracking-tight"><a href="#aside-systems" class="border-t-2 border-transparent p-2 block opacity-50" data-toggle="tab">Systems</a></li>
+          <li class="font-bold text-2xs uppercase tracking-tight"><a href="#aside-collections" class="border-t-2 border-transparent p-2 block opacity-50" data-toggle="tab">Collections</a></li>
+          <li class="ml-auto mr-2 relative">
+            <div class="dropdown sidebar-action sidebar-action-systems">
+              <button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-cog opacity-75"></i></button>
+              <ul class="dropdown-menu">
+                <li><a href="#"><input type="checkbox" class="mr-1" /> Arcade</a></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" checked /> Master System</a></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" checked /> Genesis</a></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" checked /> Sega CD</a></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" /> GameCube</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" checked /> Gameboy</a></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" checked /> Gameboy Advance</a></li>
+                <li><a href="#"><input type="checkbox" class="mr-1" checked /> DS</a></li>
+              </ul>
+            </div>
+            <div class="dropdown sidebar-action sidebar-action-collections hidden"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-plus opacity-75 text-base"></i></button><ul class="dropdown-menu"><li><a href="#">New Collection</a></li><li><a href="#">New Smart Collection</a></li></ul></div>
+          </li>
+        </ul>
+        <div class="tab-content flex-1 flex flex-col">
+          <div id="aside-systems" class="tab-pane fade in active relative flex flex-col flex-1">
+            <div class="filter p-2 bg-gray-700 text-gray-300 flex items-center text-2xs">
+              <select class="selectpicker select-group-sort" data-width="fit" data-icon-base="fal" data-tick-icon="fa-check" data-multiple-separator=" / " multiple>
+                <optgroup label="Group by" data-min-options="1" data-max-options="1">
+                  <option value="none">None</option>
+                  <option value="type" selected>Type</option>
+                  <option value="company">Company</option>
+                </optgroup>
+                <optgroup label="Sort by" data-min-options="1" data-max-options="1">
+                  <option value="" data-subtext="Asc">Name</option>
+                  <option value="" data-subtext="Asc" selected>Year</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="flex-1">
+              <ul class="list py-2 leading-loose">
+                <li class="dropdown-header">Consoles</li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Master System</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="active pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Genesis</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Sega CD</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="dropdown-header">Portables</li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> Gameboy</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> Gameboy Advance</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> DS</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+              </ul>
+            </div>
+          </div>
+          <div id="aside-collections" class="tab-pane fade relative flex flex-col flex-1">
+            <div class="flex-1">
+              <ul class="list py-2 leading-loose">
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-list mr-2 opacity-50"></i> Collection 1</a></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-list mr-2 opacity-50"></i> Shmups</a></li>
+                <li class="py-1 relative"><a href="#" class="active pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-list mr-2 opacity-50"></i> RPGs</a></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-list mr-2 opacity-50"></i> Smart Collection</a> <div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-cog text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Edit Smart Collection...</a></li><li class="divider"></li><li><a href="#">Delete</a></li></ul></div></div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main bg-gray-900 flex-1 overflow-y-scroll">
+        <ul class="game-list pt-12 pb-px px-8 text-center flex flex-wrap">
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://kit.fontawesome.com/6d6156d427.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/js/bootstrap-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+  <script>
+    $(function(){
+      // tab actions
+      $('[data-toggle="tab"]').on('show.bs.tab', function(e){
+        if($(this).attr('href') == '#aside-collections'){
+          $('.sidebar-action-systems').addClass('hidden');
+          $('.sidebar-action-collections').removeClass('hidden');
+        } else {
+          $('.sidebar-action-systems').removeClass('hidden');
+          $('.sidebar-action-collections').addClass('hidden');
+        }
+      });
+
+      // list active
+      $('.list a').on('click', function(e){
+        e.preventDefault();
+        $(this).closest('.list').find('a').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      // grid
+      $('.grid-list-btn').on('click', function(e){
+        e.preventDefault();
+        $(this).closest('.btn-group').find('.grid-list-btn').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      // selectpicker
+      $('.select-group-sort').on('loaded.bs.select', function(){
+        $('.bs-caret .caret').append('<i class="fal fa-fw fa-angle-down" />');
+      }).on('changed.bs.select', function(){
+        if($(this).val() == 'company,'){
+          $('#aside-systems .list .dropdown-header').show().text('Nintendo');
+          $('#aside-systems .list .dropdown-header').first().text('Sega');
+        } else if($(this).val() == 'none,'){
+          $('#aside-systems .list .dropdown-header').hide();
+        } else {
+          $('#aside-systems .list .dropdown-header').show().text('Portables');
+          $('#aside-systems .list .dropdown-header').first().text('Consoles');
+        }
+      });
+
+    });
+  </script>
+
+</body>
+</html>
