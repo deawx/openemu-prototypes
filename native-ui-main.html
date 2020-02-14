@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-gray-700 min-h-screen">
+<html lang="en" class="bg-black min-h-screen">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -85,7 +85,7 @@
       .navbar-right .dropdown-menu-left { right: auto; left: 0; }
     }
 
-    .window { min-width: 800px; border: 1px solid rgba(255,255,255,.1); }
+    .window { min-width: 800px; box-shadow: 0 0 0 1px rgba(255,255,255,.2); }
     .window .body { height: 600px; }
     .window .sidebar .tab-content {}
     #search { width: 100%; } /* wtf safari */
@@ -99,12 +99,12 @@
     .list .dropdown-header:not(:first-child) { padding-top: 1.5rem; }
     .list a + .flex { display: none; }
     .list .active + .flex { display: flex; }
+    .grid-list-btn svg { font-size: 16px; }
     .grid-list-btn:focus { outline: none; }
-    .grid-list-btn.active { background: var(--color-gray-800); color: #FFF; box-shadow: inset 0 0 10px 1px rgba(0,0,0,.5); }
-    .btn-group > button { border-right: 1px solid rgba(0,0,0,.5); border-left: 1px solid rgba(255,255,255,.1); }
-    .btn-group > button:first-child { border-left: 0 none; }
-    .btn-group > button:last-child { border-right: 0 none; }
-    .btn-group > button.active { border-color: transparent; }
+    .grid-list-btn.active { background: var(--color-gray); color: #FFF; text-shadow: 0 1px 1px rgba(0,0,0,.5); box-shadow: 0 1px 2px rgba(0,0,0,.5);}
+    .game-list img { box-shadow: 0 0 0 0 rgba(0,0,0,0); transition: all .25s; }
+    .game-list .active { color: #FFF; }
+    .game-list .active img { box-shadow: 0 0 0 2px var(--color-blue); }
 
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/css/bootstrap-select.min.css" rel="stylesheet" />
@@ -126,16 +126,16 @@
       </div>
       <div class="mast-toolbar w-full text-gray-400 flex-1 flex items-center">
         <div class="flex-1 flex">
-          <div class="btn-group text-gray-300 flex overflow-hidden shadow rounded">
-            <button type="button" class="grid-list-btn active p-1 px-2 bg-gray-600"><i class="fas fa-fw fa-th"></i></button>
-            <button type="button" class="grid-list-btn p-1 px-2 bg-gray-600"><i class="fal fa-fw fa-line-columns"></i></button>
+          <div class="btn-group text-gray-400 flex">
+            <button type="button" class="grid-list-btn active p-1 px-2 rounded"><i class="fas fa-fw fa-th"></i></button>
+            <button type="button" class="grid-list-btn p-1 px-2 rounded"><i class="fas fa-fw fa-line-columns"></i></button>
           </div>
         </div>
         <div class="flex-1 flex">
-          <div class="btn-group text-gray-300 text-xs flex overflow-hidden shadow rounded">
-            <button type="button" class="grid-list-btn active p-1 px-2 bg-gray-600">Library</button>
-            <button type="button" class="grid-list-btn p-1 px-2 bg-gray-600">States</button>
-            <button type="button" class="grid-list-btn p-1 px-2 bg-gray-600">Screenshots</button>
+          <div class="btn-group text-gray-400 text-xs flex">
+            <button type="button" class="grid-list-btn active p-1 px-2 rounded">Library</button>
+            <button type="button" class="grid-list-btn p-1 px-2 rounded">States</button>
+            <button type="button" class="grid-list-btn p-1 px-2 rounded">Screenshots</button>
           </div>
         </div>
         <div class="w-1/4">
@@ -189,13 +189,13 @@
             <div class="flex-1">
               <ul class="list py-2 leading-loose">
                 <li class="dropdown-header">Consoles</li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Master System</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="active pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Genesis</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Sega CD</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Master System</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-fw fa-ellipsis-v text-xs"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="active pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Genesis</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-fw fa-ellipsis-v text-xs"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> Sega CD</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-fw fa-ellipsis-v text-xs"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
                 <li class="dropdown-header">Portables</li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> Gameboy</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> Gameboy Advance</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> DS</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fal fa-fw fa-ellipsis-v text-base"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> Gameboy</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-fw fa-ellipsis-v text-xs"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> Gameboy Advance</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-fw fa-ellipsis-v text-xs"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> DS</a><div class="w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-fw fa-ellipsis-v text-xs"></i></button><ul class="dropdown-menu"><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
               </ul>
             </div>
           </div>
@@ -212,15 +212,15 @@
         </div>
       </div>
       <div class="main bg-gray-900 flex-1 overflow-y-scroll">
-        <ul class="game-list pt-12 pb-px px-8 text-center flex flex-wrap">
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
-          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" alt="" class="inline-block align-middle" /></a></li>
+        <ul class="game-list pt-12 pb-px px-8 text-gray-300 text-center flex flex-wrap">
+          <li class="mb-12 w-1/3"><a href="#" class="active"><img src="holder.js/100x150?fg=555&bg=333&outline=yes&text=sensible default" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
+          <li class="mb-12 w-1/3"><a href="#"><img src="holder.js/100x150?fg=555&bg=333&outline=yes" class="mb-1 p-px inline-block align-middle rounded-md shadow" /><b class="text-xs block">Some Title</b></a></li>
         </ul>
       </div>
     </div>
@@ -256,10 +256,17 @@
         $(this).addClass('active');
       });
 
-      // grid
+      // grid nav
       $('.grid-list-btn').on('click', function(e){
         e.preventDefault();
         $(this).closest('.btn-group').find('.grid-list-btn').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      // grid
+      $('.game-list a').on('click', function(e){
+        e.preventDefault();
+        $(this).closest('.game-list').find('a').removeClass('active');
         $(this).addClass('active');
       });
 
