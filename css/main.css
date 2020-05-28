@@ -121,7 +121,7 @@ html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:b
 .open > a { outline: 0; }
 .dropdown-menu-right { right: 0; left: auto; }
 .dropdown-menu-left { right: auto; left: 0; }
-.dropdown-header { display: block; padding: 3px 20px; font-size: 11px; line-height: 1.42857143; color: var(--color-gray-500); font-weight: bold; text-decoration: uppercase; white-space: nowrap; }
+.dropdown-header { display: block; padding: 3px 20px; font-size: 11px; line-height: 1.42857143; color: var(--color-gray-500); font-weight: bold; text-transform: uppercase; white-space: nowrap; }
 .dropdown-backdrop { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 990; }
 .pull-right > .dropdown-menu { right: 0; left: auto; }
 .dropup .caret, .navbar-fixed-bottom .dropdown .caret { content: ""; border-top: 0; border-bottom: 4px dashed; border-bottom: 4px solid \9; }
