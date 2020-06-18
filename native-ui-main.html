@@ -175,7 +175,12 @@
 <!-- GAMES TABLE -->
                 <template v-for="(value, index) in games">
                   <tr :class="['', { 'active': value.active }]">
-                    <td><div class="flex items-center"><b :class="['mr-2 w-2 h-2 rounded-full', value.new ? 'bg-blue-600' : 'bg-transparent']" :title="value.new ? 'New' : false"></b> <span class="truncate">{{ value.name }}</span></div></td>
+                    <td>
+                      <div class="flex items-center">
+                        <b :class="['mr-2 w-2 h-2 rounded-full', value.new ? 'bg-blue-400' : 'bg-transparent']" :title="value.new ? 'New' : false"></b>
+                        <span class="truncate">{{ value.name }}</span>
+                      </div>
+                    </td>
                     <td>{{ value.genre }}</td>
                     <td class="text-xs">{{ value.played }} <small class="block opacity-50">{##} {time_unit} ago</small></td>
                   </tr>
