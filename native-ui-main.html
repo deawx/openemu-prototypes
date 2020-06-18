@@ -6,7 +6,7 @@
   <title>OpenEmu App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="css/main.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/css/bootstrap-select.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/bootstrap-select@1/dist/css/bootstrap-select.min.css" rel="stylesheet" />
 </head>
 <body class="py-16 px-4 min-h-screen bg-b-25 text-gray-100 text-sm leading-tight">
 
@@ -81,15 +81,32 @@
               </select>
             </div>
             <div class="flex-1">
+
               <ul class="list py-2 leading-loose">
-                <li class="dropdown-header">Consoles</li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> <span class="truncate">Master System</span></a><div class="mt-1 w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-current"><path fill-rule="evenodd" d="M8,11 C9.1045695,11 10,11.8954305 10,13 C10,14.1045695 9.1045695,15 8,15 C6.8954305,15 6,14.1045695 6,13 C6,11.8954305 6.8954305,11 8,11 Z M8,6 C9.1045695,6 10,6.8954305 10,8 C10,9.1045695 9.1045695,10 8,10 C6.8954305,10 6,9.1045695 6,8 C6,6.8954305 6.8954305,6 8,6 Z M8,1 C9.1045695,1 10,1.8954305 10,3 C10,4.1045695 9.1045695,5 8,5 C6.8954305,5 6,4.1045695 6,3 C6,1.8954305 6.8954305,1 8,1 Z"/></svg></button><ul class="dropdown-menu"><li><a href="#">Play Random Game</a></li><li class="divider"></li><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="active pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> <span class="truncate">Genesis</span></a><div class="mt-1 w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-current"><path fill-rule="evenodd" d="M8,11 C9.1045695,11 10,11.8954305 10,13 C10,14.1045695 9.1045695,15 8,15 C6.8954305,15 6,14.1045695 6,13 C6,11.8954305 6.8954305,11 8,11 Z M8,6 C9.1045695,6 10,6.8954305 10,8 C10,9.1045695 9.1045695,10 8,10 C6.8954305,10 6,9.1045695 6,8 C6,6.8954305 6.8954305,6 8,6 Z M8,1 C9.1045695,1 10,1.8954305 10,3 C10,4.1045695 9.1045695,5 8,5 C6.8954305,5 6,4.1045695 6,3 C6,1.8954305 6.8954305,1 8,1 Z"/></svg></button><ul class="dropdown-menu"><li><a href="#">Play Random Game</a></li><li class="divider"></li><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i> <span class="truncate">Sega CD</span></a><div class="mt-1 w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-current"><path fill-rule="evenodd" d="M8,11 C9.1045695,11 10,11.8954305 10,13 C10,14.1045695 9.1045695,15 8,15 C6.8954305,15 6,14.1045695 6,13 C6,11.8954305 6.8954305,11 8,11 Z M8,6 C9.1045695,6 10,6.8954305 10,8 C10,9.1045695 9.1045695,10 8,10 C6.8954305,10 6,9.1045695 6,8 C6,6.8954305 6.8954305,6 8,6 Z M8,1 C9.1045695,1 10,1.8954305 10,3 C10,4.1045695 9.1045695,5 8,5 C6.8954305,5 6,4.1045695 6,3 C6,1.8954305 6.8954305,1 8,1 Z"/></svg></button><ul class="dropdown-menu"><li><a href="#">Play Random Game</a></li><li class="divider"></li><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="dropdown-header">Portables</li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> <span class="truncate">Gameboy</span></a><div class="mt-1 w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-current"><path fill-rule="evenodd" d="M8,11 C9.1045695,11 10,11.8954305 10,13 C10,14.1045695 9.1045695,15 8,15 C6.8954305,15 6,14.1045695 6,13 C6,11.8954305 6.8954305,11 8,11 Z M8,6 C9.1045695,6 10,6.8954305 10,8 C10,9.1045695 9.1045695,10 8,10 C6.8954305,10 6,9.1045695 6,8 C6,6.8954305 6.8954305,6 8,6 Z M8,1 C9.1045695,1 10,1.8954305 10,3 C10,4.1045695 9.1045695,5 8,5 C6.8954305,5 6,4.1045695 6,3 C6,1.8954305 6.8954305,1 8,1 Z"/></svg></button><ul class="dropdown-menu"><li><a href="#">Play Random Game</a></li><li class="divider"></li><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> <span class="truncate">Gameboy Advance</span></a><div class="mt-1 w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-current"><path fill-rule="evenodd" d="M8,11 C9.1045695,11 10,11.8954305 10,13 C10,14.1045695 9.1045695,15 8,15 C6.8954305,15 6,14.1045695 6,13 C6,11.8954305 6.8954305,11 8,11 Z M8,6 C9.1045695,6 10,6.8954305 10,8 C10,9.1045695 9.1045695,10 8,10 C6.8954305,10 6,9.1045695 6,8 C6,6.8954305 6.8954305,6 8,6 Z M8,1 C9.1045695,1 10,1.8954305 10,3 C10,4.1045695 9.1045695,5 8,5 C6.8954305,5 6,4.1045695 6,3 C6,1.8954305 6.8954305,1 8,1 Z"/></svg></button><ul class="dropdown-menu"><li><a href="#">Play Random Game</a></li><li class="divider"></li><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
-                <li class="py-1 relative"><a href="#" class="pl-4 flex items-center opacity-75"><i class="fal fa-fw fa-game-console-handheld mr-2 opacity-50"></i> <span class="truncate">DS</span></a><div class="mt-1 w-6 flex items-center justify-center absolute right-0 inset-y-0"><div class="dropdown"><button type="button" class="dropdown-toggle" data-toggle="dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="fill-current"><path fill-rule="evenodd" d="M8,11 C9.1045695,11 10,11.8954305 10,13 C10,14.1045695 9.1045695,15 8,15 C6.8954305,15 6,14.1045695 6,13 C6,11.8954305 6.8954305,11 8,11 Z M8,6 C9.1045695,6 10,6.8954305 10,8 C10,9.1045695 9.1045695,10 8,10 C6.8954305,10 6,9.1045695 6,8 C6,6.8954305 6.8954305,6 8,6 Z M8,1 C9.1045695,1 10,1.8954305 10,3 C10,4.1045695 9.1045695,5 8,5 C6.8954305,5 6,4.1045695 6,3 C6,1.8954305 6.8954305,1 8,1 Z"/></svg></button><ul class="dropdown-menu"><li><a href="#">Play Random Game</a></li><li class="divider"></li><li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li><li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li><li class="divider"></li><li><a href="#">Hide System</a></li></ul></div></div></li>
+                <template v-for="(system, system_index) in systems">
+                  <li class="dropdown-header">{{ system.name }}</li>
+                  <li v-for="(value, index) in system.hardware" class="my-1 relative">
+                    <a href="#" :class="['pl-4 flex items-center opacity-75', {'active': value.active }]" @click="toggleActive(value, $event)">
+                      <i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i>
+                      <span class="truncate">{{ value.name }}</span>
+                    </a>
+                    <div class="w-6 flex items-center absolute right-0 inset-y-0">
+                      <div class="dropdown flex items-center">
+                        <button type="button" class="dropdown-toggle text-xl flex items-center" data-toggle="dropdown">
+                          <i class="fal fa-fw fa-ellipsis-v"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Play Random Game</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Default Core <i class="fas fa-angle-right"></i></a></li>
+                          <li><a href="#">Default Shader <i class="fas fa-angle-right"></i></a></li>
+                          <li><a href="#">Default Scale <i class="fas fa-angle-right"></i></a></li>
+                          <li class="divider"></li><li><a href="#">Hide System</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </template>
               </ul>
             </div>
           </div>
@@ -164,11 +181,50 @@
   </ul>
 
   <script src="https://kit.fontawesome.com/6d6156d427.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/js/bootstrap-select.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+  <script src="https://unpkg.com/vue@2/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/jquery@3/dist/jquery.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-select@1/dist/js/bootstrap-select.min.js"></script>
+  <script src="https://unpkg.com/bootstrap@3/dist/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/holderjs/holder.min.js"></script>
   <script>
+    // data
+    var oe = new Vue({
+      el: '.window',
+      data: {
+        systems: [
+          {
+            name: 'consoles',
+            hardware: [
+              { name: 'Master System'},
+              { name: 'Genesis', active: true },
+              { name: 'Sega CD'},
+            ]
+          },
+          {
+            name: 'portables',
+            hardware: [
+              { name: 'Gameboy'},
+              { name: 'Gameboy Advance'},
+              { name: 'DS'},
+            ]
+          }
+        ],
+      },
+      methods: {
+        toggleActive: function(id, e){
+          e.preventDefault();
+          // deactivate all items
+          this.systems.forEach(function(system_index, index){
+            system_index.hardware.forEach(function(hardware_index, index){
+              oe.$set(hardware_index, 'active', false);
+            });
+          });
+          // activate clicked item
+          this.$set(id, 'active', true);
+        }
+      }
+    });
+
     $(function(){
       // tab actions
       $('[data-toggle="tab"]').on('show.bs.tab', function(e){
@@ -179,13 +235,6 @@
           $('.sidebar-action-systems').removeClass('hidden');
           $('.sidebar-action-collections').addClass('hidden');
         }
-      });
-
-      // list active
-      $('.list a').on('click', function(e){
-        e.preventDefault();
-        $(this).closest('.list').find('a').removeClass('active');
-        $(this).addClass('active');
       });
 
       // grid nav
