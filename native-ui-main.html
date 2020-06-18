@@ -47,7 +47,7 @@
         <ul class="aside-nav bg-gray-700 flex items-center">
           <li>
             <div class="filter p-2 bg-gray-700 text-gray-300 flex items-center text-xs">
-              <select class="selectpicker select-group-sort" data-width="fit" data-icon-base="fal" data-tick-icon="fa-check" data-multiple-separator=" / " multiple>
+              <select class="selectpicker select-group-sort" data-width="fit" data-icon-base="fal" data-tick-icon="fa-check" data-multiple-separator=" / " data-show-tick="false" multiple>
                 <optgroup label="Group by" data-min-options="1" data-max-options="1">
                   <option value="none">None</option>
                   <option value="type" selected>Type</option>
@@ -93,7 +93,7 @@
                   <template v-for="(value, index) in value.hardware">
                     <li v-if="!value.hidden" class="my-1 relative">
                       <a href="#" :class="['pl-4 flex items-center opacity-75', {'active': value.active }]" @click="toggleActive(value, $event)">
-                        <i class="fal fa-fw fa-gamepad mr-2 opacity-50"></i>
+                        <img :src="'img/'+ value.img + '.png'" class="mr-2 w-4 h-auto" :alt="value.name" />
                         <span class="pr-5 truncate">{{ value.name }}</span>
                       </a>
                       <div class="w-6 flex items-center absolute right-0 inset-y-0">
@@ -207,19 +207,19 @@
           {
             name: 'consoles',
             hardware: [
-              { name: 'Arcade', hidden: true },
-              { name: 'Master System' },
-              { name: 'Genesis', active: true },
-              { name: 'Sega CD'},
-              { name: 'GameCube', hidden: true },
+              { name: 'Arcade', img: 'arcade', hidden: true },
+              { name: 'Master System', img: 'sega-master-system' },
+              { name: 'Genesis', img: 'sega-genesis', active: true },
+              { name: 'Sega CD', img: 'sega-cd' },
+              { name: 'GameCube', img: 'nintendo-gc', hidden: true },
             ]
           },
           {
             name: 'portables',
             hardware: [
-              { name: 'Gameboy'},
-              { name: 'Gameboy Advance'},
-              { name: 'DS'},
+              { name: 'Gameboy', img: 'nintendo-gb' },
+              { name: 'Gameboy Advance', img: 'nintendo-gba' },
+              { name: 'DS', img: 'nintendo-ds' },
             ]
           }
         ],
